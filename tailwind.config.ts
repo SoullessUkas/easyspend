@@ -23,57 +23,56 @@ const config = {
         fill: {
           1: "rgba(255, 255, 255, 0.10)",
         },
-        bankGradient: "#0179FE",
+        bankGradient: "#76c7a3", // Verde mais escuro
         indigo: {
-          500: "#6172F3",
-          700: "#3538CD",
+          500: "#5bb0af", // Azul esverdeado mais escuro
+          700: "#3ba59e", // Verde menta escuro
         },
         success: {
-          25: "#F6FEF9",
-          50: "#ECFDF3",
-          100: "#D1FADF",
-          600: "#039855",
-          700: "#027A48",
-          900: "#054F31",
+          25: "#e6f8ef",  // Verde claro, ligeiramente escurecido
+          50: "#bfe9da",  // Verde bebê mais escuro
+          100: "#9fdac7", // Verde suave um pouco mais forte
+          600: "#2b9e78", // Verde moderado escurecido
+          700: "#207c61", // Verde escuro
+          900: "#0e5b49", // Verde mais intenso e profundo
         },
         pink: {
-          25: "#FEF6FB",
-          100: "#FCE7F6",
-          500: "#EE46BC",
-          600: "#DD2590",
-          700: "#C11574",
-          900: "#851651",
+          25: "#dbf6e9",  // Verde claro com leve toque pastel escurecido
+          100: "#b8e5d3", // Verde bebê suave e mais visível
+          500: "#7bbfa2", // Verde bebê um pouco mais escuro
+          600: "#5fa689", // Verde moderado
+          700: "#438e70", // Verde médio mais escuro
+          900: "#27634a", // Verde profundo e escuro
         },
         blue: {
-          25: "#F5FAFF",
-          100: "#D1E9FF",
-          500: "#2E90FA",
-          600: "#1570EF",
-          700: "#175CD3",
-          900: "#194185",
+          25: "#e0f7f3",  // Azul esverdeado claro
+          100: "#b1e9df", // Azul-verde mais escuro
+          500: "#1d9987", // Verde água mais acentuado
+          600: "#0c8270", // Verde médio mais escuro
+          700: "#006b59", // Verde profundo e escuro
+          900: "#004f40", // Verde esmeralda escuro e intenso
         },
         sky: {
-          1: "#F3F9FF",
+          1: "#d1ecea",   // Azul esverdeado escuro
         },
         black: {
-          1: "#00214F",
-          2: "#344054",
+          1: "#002a2a",   // Verde esverdeado muito escuro
+          2: "#003d3d",   // Verde musgo escuro
         },
         gray: {
-          25: "#FCFCFD",
-          200: "#EAECF0",
-          300: "#D0D5DD",
-          500: "#667085",
-          600: "#475467",
-          700: "#344054",
-          900: "#101828",
+          25: "#e5f5f5",  // Cinza claro com toque de verde escurecido
+          200: "#c1dadb", // Cinza suave com tons de verde mais acentuados
+          300: "#95c0c1", // Cinza esverdeado mais escuro
+          500: "#699e9f", // Cinza-verde médio
+          600: "#4f7d7e", // Verde misturado com cinza escurecido
+          700: "#3d6566", // Verde-escuro
+          900: "#274141", // Verde muito escuro com toque de cinza
         },
       },
       backgroundImage: {
-        "bank-gradient": "linear-gradient(90deg, #0179FE 0%, #4893FF 100%)",
+        "bank-gradient": "linear-gradient(90deg, #76c7a3 0%, #4a9c85 100%)", // Gradiente de verdes escuros
         "gradient-mesh": "url('/icons/gradient-mesh.svg')",
-        "bank-green-gradient":
-          "linear-gradient(90deg, #01797A 0%, #489399 100%)",
+        "bank-green-gradient": "linear-gradient(90deg, #76c7a3 0%, #3ba59e 100%)", // Gradiente de verde escuro para verde menta
       },
       boxShadow: {
         form: "0px 1px 2px 0px rgba(16, 24, 40, 0.05)",
