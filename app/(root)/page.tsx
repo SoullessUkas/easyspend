@@ -18,7 +18,7 @@ const Home = () => {
           <TotalBalanceBox 
           accounts={[]}
           totalBanks={1}
-          totalCurrentBalance={1250.38}
+          totalCurrentBalance={100000000.46}
           />
         </header>
 
@@ -28,7 +28,7 @@ const Home = () => {
       <RightSidebar 
       user={loggedIn}
       transactions={[]}
-      banks={[{},{}]}
+      banks={[{currentBalance: 2000.23},{currentBalance: 700.23}]}
       />
     </section>
   );
