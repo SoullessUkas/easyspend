@@ -25,9 +25,11 @@ const AuthForm = ({ type }: { type: string }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setisLoading] = useState(false);
 
+  const formSchema = authFormSchema(type);
+
   // 1. Define your form.
-  const form = useForm<z.infer<typeof authFormSchema>>({
-    resolver: zodResolver(authFormSchema),
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
       password: "",
@@ -35,7 +37,7 @@ const AuthForm = ({ type }: { type: string }) => {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof authFormSchema>) {
+  function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     setisLoading(true);
@@ -81,19 +83,21 @@ const AuthForm = ({ type }: { type: string }) => {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               {type === "sign-up" && (
                 <>
-                  <CunstomInput
-                    control={form.control}
-                    name="firsName"
-                    label="Nome"
-                    placeholder="Digite seu nome"
-                  />
+                  <div className="flex gap-4">
+                    <CunstomInput
+                      control={form.control}
+                      name="firsName"
+                      label="Nome"
+                      placeholder="Digite seu nome"
+                    />
 
-                  <CunstomInput
-                    control={form.control}
-                    name="lastName"
-                    label="Sobrenome"
-                    placeholder="Digite seu sobrenome"
-                  />
+                    <CunstomInput
+                      control={form.control}
+                      name="lastName"
+                      label="Sobrenome"
+                      placeholder="Digite seu sobrenome"
+                    />
+                  </div>
 
                   <CunstomInput
                     control={form.control}
@@ -101,31 +105,34 @@ const AuthForm = ({ type }: { type: string }) => {
                     label="Endereço"
                     placeholder="Digite seu endereço"
                   />
-                  <CunstomInput
-                    control={form.control}
-                    name="state"
-                    label="Estado"
-                    placeholder="Digite seu estado"
-                  />
-                  <CunstomInput
-                    control={form.control}
-                    name="postalCode"
-                    label="CEP"
-                    placeholder="Digite seu CEP"
-                  />
-                  <CunstomInput
-                    control={form.control}
-                    name="dateOfBirth"
-                    label="Data de nascimento"
-                    placeholder="Digite sua Data de nascimento"
-                  />
-                   <CunstomInput
-                    control={form.control}
-                    name="ssn"
-                    label="CPF"
-                    placeholder="Digite seu CEP"
-                  />
-                  
+                  <div className="flex gap-4">
+                    <CunstomInput
+                      control={form.control}
+                      name="state"
+                      label="Estado"
+                      placeholder="Digite seu estado"
+                    />
+                    <CunstomInput
+                      control={form.control}
+                      name="postalCode"
+                      label="CEP"
+                      placeholder="Digite seu CEP"
+                    />
+                  </div>
+                  <div className="flex gap-4">
+                    <CunstomInput
+                      control={form.control}
+                      name="dateOfBirth"
+                      label="Data de nascimento"
+                      placeholder="Digite sua Data de nascimento"
+                    />
+                    <CunstomInput
+                      control={form.control}
+                      name="ssn"
+                      label="CPF"
+                      placeholder="Digite seu CPF"
+                    />
+                  </div>
                 </>
               )}
               <CunstomInput
