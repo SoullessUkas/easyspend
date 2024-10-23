@@ -5,16 +5,22 @@ import { createAdminClient, createSessionClient } from "../appwrite";
 import { cookies } from "next/headers";
 import { parseStringify } from "../utils";
 
-export const signIn = async () => {
+export const signIn = async ({ email, password }: signInProps) => {
   try {
-    // Muttation /database /make a fetch
+    const { account } = await createAdminClient();
+
+    const response = account.createEmailPasswordSession(email, password);
+
+    return parseStringify(response);
+
   } catch (error) {
     console.error("Error", error);
+    throw new Error("Erro ao tentar fazer login. Tente novamente.");
   }
 };
 
 export const signUp = async (userData: SignUpParams) => {
-    const {email,password,firstName,lastName} = userData;
+  const { email, password, firstName, lastName } = userData;
   try {
     const { account } = await createAdminClient();
 
@@ -25,10 +31,9 @@ export const signUp = async (userData: SignUpParams) => {
       `${firstName} ${lastName} `
     );
 
-    
     const session = await account.createEmailPasswordSession(email, password);
 
-     (await cookies()).set("appwrite-session", session.secret, {
+    (await cookies()).set("appwrite-session", session.secret, {
       path: "/",
       httpOnly: true,
       sameSite: "strict",
@@ -46,9 +51,9 @@ export const signUp = async (userData: SignUpParams) => {
 export async function getLoggedInUser() {
   try {
     const { account } = await createSessionClient();
-    const user =  await account.get();
+    const user = await account.get();
 
-    return parseStringify(user)
+    return parseStringify(user);
   } catch (error) {
     return null;
   }

@@ -52,12 +52,12 @@ const onSubmit = async(data: z.infer<typeof formSchema>) => {
     }
 
     if(type === 'sign-in'){
-    /*const response = await signIn({
-        emael: data.email,
+    const response = await signIn({
+        email: data.email,
         password: data.password,
       })
 
-      if(response) router.push('/')*/
+      if(response) router.push('/')
     }
    } catch (error) {
     console.log(error)
