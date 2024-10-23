@@ -199,7 +199,7 @@ export const authFormSchema = (type : string) =>
     //sign-up
 
 
-    firsName: type === "sign-in" ? z.string().optional() : z.string().min(3),
+    firstName: type === "sign-in" ? z.string().optional() : z.string().min(3),
 
     lastName: type === "sign-in" ? z.string().optional() : z.string().min(3),
 
