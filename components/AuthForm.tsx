@@ -54,7 +54,7 @@ const onSubmit = async(data: z.infer<typeof formSchema>) => {
     if(type === 'sign-in'){
     const response = await signIn({
         email: data.email,
-        password: data.password,
+        password: data.password
       })
 
       if(response) router.push('/')
