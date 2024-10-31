@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Link from "next/link"; // Substituindo pelo Link do Next.js
+import Footer from "./Footer";
 
 export const MobileNav = ({ user }: MobileNavProps) => {
   const pathname = usePathname();
@@ -75,7 +76,7 @@ export const MobileNav = ({ user }: MobileNavProps) => {
                 </nav>
               </SheetClose>
 
-              FOOTER
+              <Footer user={user} type="mobile" />
             </div>
           </nav>
         </SheetContent>
