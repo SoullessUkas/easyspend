@@ -9,15 +9,15 @@ export const signIn = async ({ email, password }: signInProps) => {
   try {
     const { account } = await createAdminClient();
 
-    const response =  await account.createEmailPasswordSession(email, password);
+    const response = await account.createEmailPasswordSession(email, password);
+    
+    if (response) { cookies().set("appwrite-session", response.secret, { path: "/", httpOnly: true, sameSite: "strict", secure: true, }); }
 
     return parseStringify(response);
-
   } catch (error) {
-    console.error("Error", error);
-    throw new Error("Erro ao tentar fazer login. Tente novamente.");
+    console.error('Error', error);
   }
-};
+}
 
 export const signUp = async (userData: SignUpParams) => {
   const { email, password, firstName, lastName } = userData;
@@ -29,7 +29,7 @@ export const signUp = async (userData: SignUpParams) => {
       email,
       password,
       `${firstName} ${lastName} `
-    );
+    )
 
     const session = await account.createEmailPasswordSession(email, password);
 
@@ -51,10 +51,12 @@ export const signUp = async (userData: SignUpParams) => {
 export async function getLoggedInUser() {
   try {
     const { account } = await createSessionClient();
+
     const user = await account.get();
 
     return parseStringify(user);
   } catch (error) {
+    console.log(error)
     return null;
   }
 }
