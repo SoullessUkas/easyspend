@@ -11,7 +11,7 @@ const Footer = ({ user, type = "desktop" }: FooterProps) => {
   const handleLogOut = async () => {
     const loggedOut = await logoutAccount();
 
-    if(loggedOut) router.push('/sign-in')
+   if(loggedOut) router.push('/sign-in')
   }
   return (
     <footer className="footer">
