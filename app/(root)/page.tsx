@@ -13,7 +13,7 @@ const Home =  async () => {
             type="greeting"
             title="Bem vindo"
             user={loggedIn?.name || "Guest"}
-            subtext="Para acessar e manejar sua conta e tansações com eficiência."
+            subtext="Para acessar e manejar sua conta e transações com eficiência."
           />
 
           <TotalBalanceBox 
