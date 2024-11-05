@@ -51,11 +51,11 @@ const onSubmit = async(data: z.infer<typeof formSchema>) => {
     const userData = {
       firstName: data.firstName!,
       lastName: data.lastName!,
-      adaress1: data.address1!,
+      address1: data.address1!,
       city: data.city!,
       state: data.state!,
       postalCode: data.postalCode!,
-      dataOfBirth: data.dateOfBirth!,
+      dateOfBirth: data.dateOfBirth!,
       ssn: data.ssn!,
       email: data.email,
       password: data.password,
@@ -141,6 +141,12 @@ const onSubmit = async(data: z.infer<typeof formSchema>) => {
                     />
                   </div>
 
+                  <CunstomInput
+                    control={form.control}
+                    name="address1"
+                    label="Endereço"
+                    placeholder="Digite seu endereço"
+                  />
 
                   <CunstomInput
                     control={form.control}
@@ -149,12 +155,7 @@ const onSubmit = async(data: z.infer<typeof formSchema>) => {
                     placeholder="Digite  sua cidade"
                   />
                    
-                  <CunstomInput
-                    control={form.control}
-                    name="address1"
-                    label="Endereço"
-                    placeholder="Digite seu endereço"
-                  />
+                  
                    
 
                    <div className="flex gap-4">

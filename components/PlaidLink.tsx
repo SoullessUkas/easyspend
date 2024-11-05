@@ -5,56 +5,56 @@ import { StyledString } from 'next/dist/build/swc';
 import { useRouter } from 'next/navigation';
 import { createLinkToken, exchangePublicToken } from '@/lib/actions/user.actions';
 
-const PlaidLink = ({user,variant}:PlaidLinkProps) => {
-const router = useRouter();
+const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
+  const router = useRouter();
 
-const [token,setToken] = useState('');
-useEffect(() =>{
+  const [token, setToken] = useState('');
+
+  useEffect(() => {
     const getLinkToken = async () => {
-        const data = await createLinkToken(user);
-        setToken(data?.linkToken);
-    }
-},[user]);
+      const data = await createLinkToken(user);
 
-const onSuccess = useCallback<PlaidLinkOnSuccess>(async ( public_token : string) => {
+      setToken(data?.linkToken);
+    }
+
+    getLinkToken();
+  }, [user]);
+
+  const onSuccess = useCallback<PlaidLinkOnSuccess>(async (public_token: string) => {
     await exchangePublicToken({
-        publicToken: public_token,
-        user,
+      publicToken: public_token,
+      user,
     })
 
-    router.push('/')
-}, [user])
-
-const config : PlaidLinkOptions = {
+    router.push('/');
+  }, [user])
+  
+  const config: PlaidLinkOptions = {
     token,
     onSuccess
-}
+  }
 
-const {open,ready} = usePlaidLink(config);
-    
+  const { open, ready } = usePlaidLink(config);
+  
   return (
     <>
-    {variant === 'primary' ? (
+      {variant === 'primary' ? (
         <Button
-        className='plaidlink-primary'
-        onClick={() => open()}
-        disabled={!ready}
+          onClick={() => open()}
+          disabled={!ready}
+          className="plaidlink-primary"
         >
-        
-            Conectar Banco 
-
+          Conecatar Banco
         </Button>
-    ): variant === 'ghost' ?(
-    <Button>
-        Conectar Banco
-    </Button>
-): (
-    <Button>
-        Conectar Banco
-    </Button>
-)
-
-}
+      ): variant === 'ghost' ? (
+        <Button>
+          Conecatar Banco
+        </Button>
+      ): (
+        <Button>
+          Conecatar Banco
+        </Button>
+      )}
     </>
   )
 }

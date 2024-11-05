@@ -29,47 +29,47 @@ export const signIn = async ({ email, password }: signInProps) => {
   }
 }
 
-export const signUp = async ({password, ...userData} : SignUpParams) => {
-  const { email,  firstName, lastName } = userData;
-
+export const signUp = async ({ password, ...userData }: SignUpParams) => {
+  const { email, firstName, lastName } = userData;
+  
   let newUserAccount;
 
   try {
-    const { account,database } = await createAdminClient();
+    const { account, database } = await createAdminClient();
 
     newUserAccount = await account.create(
-      ID.unique(),
-      email,
-      password,
-      `${firstName} ${lastName} `
+      ID.unique(), 
+      email, 
+      password, 
+      `${firstName} ${lastName}`
     );
 
-    if(!newUserAccount) throw new Error('Erro ao criar o usuario')
+    if(!newUserAccount) throw new Error('Error creating user')
 
-      const dwollaCustumerUrl = await createDwollaCustomer({
+    const dwollaCustomerUrl = await createDwollaCustomer({
+      ...userData,
+      type: 'personal'
+    })
+
+    if(!dwollaCustomerUrl) throw new Error('Error creating Dwolla customer')
+
+    const dwollaCustomerId = extractCustomerIdFromUrl(dwollaCustomerUrl);
+
+    const newUser = await database.createDocument(
+      DATABASE_ID!,
+      USER_COLLECTION_ID!,
+      ID.unique(),
+      {
         ...userData,
-        type: 'personal'
-
-      })
-
-      if(!dwollaCustumerUrl) throw new Error('Erro ao criar Dwolla Custumer')
-
-        const dwollaCustomerId = extractCustomerIdFromUrl(dwollaCustumerUrl);
-        const newUser = await database.createDocument(
-          DATABASE_ID!,
-          USER_COLLECTION_ID!,
-          ID.unique(),
-          {
-            ...userData,
-            userId: newUserAccount.$id,
-            dwollaCustomerId,
-            dwollaCustumerUrl
-          }
-        )
+        userId: newUserAccount.$id,
+        dwollaCustomerId,
+        dwollaCustomerUrl
+      }
+    )
 
     const session = await account.createEmailPasswordSession(email, password);
 
-     cookies().set("appwrite-session", session.secret, {
+    cookies().set("appwrite-session", session.secret, {
       path: "/",
       httpOnly: true,
       sameSite: "strict",
@@ -78,9 +78,10 @@ export const signUp = async ({password, ...userData} : SignUpParams) => {
 
     return parseStringify(newUser);
   } catch (error) {
-    console.error("Error", error);
+    console.error('Error', error);
   }
-};
+}
+
 
 // ... your initilization functions
 
@@ -93,6 +94,7 @@ export async function getLoggedInUser() {
     return parseStringify(user);
   } catch (error) {
     console.log(error)
+    
     return null;
   }
 }
@@ -119,7 +121,7 @@ export const createLinkToken = async (user:User) => {
       },
       client_name: `${user.firstName} ${user.lastName}`,
       products:['auth'] as Products[],
-      language: 'pt',
+      language: 'en',
       country_codes:['US'] as CountryCode[],
 
     }
@@ -136,7 +138,7 @@ bankId,
 accountId,
 accessToken,
 fundingSourceUrl,
-sharableId,
+shareableId,
 }:createBankAccountProps) =>{
   try {
     const {database} = await createAdminClient();
@@ -150,7 +152,7 @@ sharableId,
         accountId,
         accessToken,
         fundingSourceUrl,
-        sharableId,
+        shareableId,
       }
     )
 
@@ -202,14 +204,14 @@ export const exchangePublicToken = async ({
     // If the funding source URL is not created, throw an error
     if (!fundingSourceUrl) throw Error;
 
-    // Create a bank account using the user ID, item ID, account ID, access token, funding source URL, and sharable ID
+    // Create a bank account using the user ID, item ID, account ID, access token, funding source URL, and shareable ID
     await createBankAccount({
       userId: user.$id,
       bankId: itemId,
       accountId: accountData.account_id,
       accessToken,
       fundingSourceUrl,
-      sharableId: encryptId(accountData.account_id),
+      shareableId: encryptId(accountData.account_id),
     });
 
     // Revalidate the path to reflect the changes
