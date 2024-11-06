@@ -39,22 +39,22 @@ export const formatDateTime = (dateString: Date) => {
   };
 
   const formattedDateTime: string = new Date(dateString).toLocaleString(
-    "en-US",
+    "pt-BR",
     dateTimeOptions
   );
 
   const formattedDateDay: string = new Date(dateString).toLocaleString(
-    "en-US",
+    "pt-BR",
     dateDayOptions
   );
 
   const formattedDate: string = new Date(dateString).toLocaleString(
-    "en-US",
+    "pt-BR",
     dateOptions
   );
 
   const formattedTime: string = new Date(dateString).toLocaleString(
-    "en-US",
+    "pt-BR",
     timeOptions
   );
 
@@ -192,7 +192,7 @@ export const getTransactionStatus = (date: Date) => {
   const twoDaysAgo = new Date(today);
   twoDaysAgo.setDate(today.getDate() - 2);
 
-  return date > twoDaysAgo ? "Processing" : "Success";
+  return date > twoDaysAgo ? "Processando" : "Concluida!";
 };
 export const authFormSchema = (type: string) => z.object({
   // sign up

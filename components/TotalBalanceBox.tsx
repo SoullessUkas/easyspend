@@ -13,7 +13,7 @@ export const TotalBalanceBox = ({
       <section className="total-balance">
         <div className="total-balance-chart"><DoughnutChart accounts= {accounts}/></div>
         <div className="flex flex-col gap-6">
-          <h2 className="header-2">Conta Bancaria: {totalBanks}</h2>
+          <h2 className="header-2">Contas Bancarias: {totalBanks}</h2>
           <div className="flex flex-col gap-2">
             <p className="total-balance-label">Valor total atual</p>
             <div className="total-balance-amount flex-center gap-2">
