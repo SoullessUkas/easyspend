@@ -45,7 +45,7 @@ export const getAccounts = async ({ userId }: getAccountsProps) => {
           type: accountData.type as string,
           subtype: accountData.subtype! as string,
           appwriteItemId: bank.$id,
-          shearableId: bank.shareableId,
+          shareableId: bank.shareableId,
         };
 
         return account;
@@ -91,6 +91,8 @@ export const getAccount = async ({ appwriteItemId }: getAccountProps) => {
         type: transferData.senderBankId === bank.$id ? "debit" : "credit",
       })
     );
+
+   
 
     // get institution info from plaid
     const institution = await getInstitution({
