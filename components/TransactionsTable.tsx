@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Table,
   TableBody,
@@ -18,15 +17,34 @@ import {
 } from "@/lib/utils";
 import { transactionCategoryStyles } from "@/constants";
 
+// Mapeamento de traduções de categorias
+const categoryTranslations: { [key: string]: string } = {
+  "Food and Drink": "Alimentação",
+  Travel: "Viagem",
+  Payment:"Pagamento",
+  default: "Outros",
+  "Processando" :"Processando",
+   "Concluida!":"Concluida!",
+   trasfer: "Transferencia",
+};
+
+// Função para traduzir categoria
+const translateCategory = (category: string) => {
+  return categoryTranslations[category] || categoryTranslations.default;
+};
+
+// Componente de Badge para Categoria
 const CategoryBadge = ({ category }: CategoryBadgeProps) => {
+  const translatedCategory = translateCategory(category); // Aplicando a tradução
   const { borderColor, backgroundColor, textColor, chipBackgroundColor } =
     transactionCategoryStyles[
       category as keyof typeof transactionCategoryStyles
     ] || transactionCategoryStyles.default;
+  
   return (
-    <div className={cn("category-badge", borderColor,chipBackgroundColor)}>
-      <div className={cn("size-2 rounded-full",backgroundColor)} />
-      <p className={cn("text-[12px] font-medium", textColor)}>{category}</p>
+    <div className={cn("category-badge", borderColor, chipBackgroundColor)}>
+      <div className={cn("size-2 rounded-full", backgroundColor)} />
+      <p className={cn("text-[12px] font-medium", textColor)}>{translatedCategory}</p>
     </div>
   );
 };
@@ -77,13 +95,12 @@ const TransactionsTable = ({ transactions }: TransactionTableProps) => {
               </TableCell>
 
               <TableCell className="pl-2 pr-10">
-                {" "}
                 <CategoryBadge category={status} />
               </TableCell>
               <TableCell className="min-w-32 pl-2 pr-10">
                 {formatDateTime(new Date(t.date)).dateTime}
               </TableCell>
-              <TableCell className="pl-2 pr-10 captalize min-w-24">
+              <TableCell className="pl-2 pr-10 capitalize min-w-24">
                 {t.paymentChannel}
               </TableCell>
               <TableCell className="pl-2 pr-10 max-md:hidden">

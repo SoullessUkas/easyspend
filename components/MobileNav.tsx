@@ -12,6 +12,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Link from "next/link"; // Substituindo pelo Link do Next.js
 import Footer from "./Footer";
+import PlaidLink from "./PlaidLink";
 
 export const MobileNav = ({ user }: MobileNavProps) => {
   const pathname = usePathname();
@@ -50,29 +51,37 @@ export const MobileNav = ({ user }: MobileNavProps) => {
                     const isActive =
                       pathname === item.route ||
                       pathname.startsWith(`${item.route}/`);
-                      return (
-                        <SheetClose asChild key={item.route}>
-                          <Link href={item.route} key={item.label}
-                            className={cn('mobilenav-sheet_close w-full', { 'bg-bank-gradient': isActive })}
+                    return (
+                      <SheetClose asChild key={item.route}>
+                        <Link
+                          href={item.route}
+                          key={item.label}
+                          className={cn("mobilenav-sheet_close w-full", {
+                            "bg-bank-gradient": isActive,
+                          })}
+                        >
+                          <Image
+                            src={item.imgURL}
+                            alt={item.label}
+                            width={20}
+                            height={20}
+                            className={cn({
+                              "brightness-[3] invert-0": isActive,
+                            })}
+                          />
+                          <p
+                            className={cn(
+                              "text-16 font-semibold text-black-2",
+                              { "text-white": isActive }
+                            )}
                           >
-                              <Image 
-                                src={item.imgURL}
-                                alt={item.label}
-                                width={20}
-                                height={20}
-                                className={cn({
-                                  'brightness-[3] invert-0': isActive
-                                })}
-                              />
-                            <p className={cn("text-16 font-semibold text-black-2", { "text-white": isActive })}>
-                              {item.label}
-                            </p>
-                          </Link>
-                        </SheetClose>
-                      )
-                    })}
-
-                    USER
+                            {item.label}
+                          </p>
+                        </Link>
+                      </SheetClose>
+                    );
+                  })}
+                  <PlaidLink user={user} />
                 </nav>
               </SheetClose>
 
