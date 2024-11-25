@@ -1,6 +1,6 @@
 # EasySpend
 
-**EasySpend** é uma plataforma intuitiva de controle financeiro, desenvolvida para ajudar você a gerenciar suas finanças pessoais de forma simples e eficiente.No momento essa plataforma não esta apta para usar bancos reais apenas o modo sandbox esta habilitado para que você consiga expericiar a aplicação.
+**EasySpend** é uma plataforma intuitiva de controle financeiro, desenvolvida para ajudar você a gerenciar suas finanças pessoais de forma simples e eficiente.No momento, essa plataforma não está apta para usar bancos reais; apenas o modo sandbox está habilitado para que você consiga experienciar a aplicação.
 
 ## 🌟 Funcionalidades principais
 - **Gestão de transações**: Adicione, edite e remova transações financeiras.
@@ -81,7 +81,7 @@ Crie um arquivo .env e adicione as seguintes variáveis:
 
 
 
-    
+
 ## 📷 Capturas de tela
 ![alt text](image.png)
 ![alt text](image-1.png)
