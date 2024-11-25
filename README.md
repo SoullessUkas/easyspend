@@ -21,8 +21,9 @@ Acesse a aplicação em: [EasySpend - Controle Financeiro](https://easyspend-ckd
 - **Backend**: [Node.Js](https://nodejs.org/pt) , [TypeScript](https://www.typescriptlang.org/)
 - **Monitoramento**: [Sentry](https://sentry.io/welcome/)
 - **Banco de dados**: [AppWrite](https://appwrite.io/)
-- **Autenticação**: [AppWrite](https://appwrite.io/)
-- **Estilização**: [TailwindCSS](https://tailwindcss.com/), [Shadcn](https://ui.shadcn.com/).
+- **Autenticação**: [AppWrite](https://appwrite.io/),React Hook Form,
+Zod
+- **Estilização**: [TailwindCSS](https://tailwindcss.com/), [Shadcn](https://ui.shadcn.com/),[Chart.js](https://www.chartjs.org/).
 - **Integrações**: [Plaid](https://plaid.com/docs/) API Bancaria para leitura de dados bancarios e [Dwolla](https://www.dwolla.com/) API para processamentos bancarios.
 
 ---
