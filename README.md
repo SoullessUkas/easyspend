@@ -113,8 +113,6 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar
 
     git push origin feature/nova-feature
 
-## 📜 Licença
-Este projeto está licenciado sob a Licença MIT. Consulte o arquivo LICENSE para mais detalhes.
 
 ## 📧 Contato
 Se você tiver dúvidas ou sugestões, entre em contato:
