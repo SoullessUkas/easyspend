@@ -177,7 +177,7 @@ const onSubmit = async(data: z.infer<typeof formSchema>) => {
                       control={form.control}
                       name="dateOfBirth"
                       label="Data de nascimento"
-                      placeholder="Digite sua Data de nascimento"
+                      placeholder="YYYY-MM-DD"
                     />
                     <CunstomInput
                       control={form.control}
