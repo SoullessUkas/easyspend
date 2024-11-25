@@ -163,7 +163,7 @@ const onSubmit = async(data: z.infer<typeof formSchema>) => {
                       control={form.control}
                       name="state"
                       label="Estado"
-                      placeholder="Digite seu estado"
+                      placeholder="Exemplo: MT "
                     />
                     <CunstomInput
                       control={form.control}
