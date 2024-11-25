@@ -169,7 +169,7 @@ const onSubmit = async(data: z.infer<typeof formSchema>) => {
                       control={form.control}
                       name="postalCode"
                       label="CEP"
-                      placeholder="Digite seu CEP"
+                      placeholder="Use 5 Algarismos"
                     />
                   </div>
                   <div className="flex gap-4">
@@ -183,7 +183,7 @@ const onSubmit = async(data: z.infer<typeof formSchema>) => {
                       control={form.control}
                       name="ssn"
                       label="CPF"
-                      placeholder="Digite seu CPF"
+                      placeholder="Use 4 Algarismos"
                     />
                   </div>
                 </>
