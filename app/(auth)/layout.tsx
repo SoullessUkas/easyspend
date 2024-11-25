@@ -9,11 +9,7 @@ export default function RootLayout({
      <main className="flex min-h-screen w-full" >
       {children}
 
-      <div className="auth-asset">
-      <div>
-        
-      </div>
-      </div>
+     
      </main>
     );
   }

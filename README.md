@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EasySpend
 
-## Getting Started
+**EasySpend** é uma plataforma intuitiva de controle financeiro, desenvolvida para ajudar você a gerenciar suas finanças pessoais de forma simples e eficiente.No momento essa plataforma não esta apta para usar bancos reais apenas o modo sandbox esta habilitado para que você consiga expericiar a aplicação.
 
-First, run the development server:
+## 🌟 Funcionalidades principais
+- **Gestão de transações**: Adicione, edite e remova transações financeiras.
+- **Visualização de categorias**: Analise seus gastos organizados por categorias.
+- **Acompanhamento de progresso**: Gráficos e indicadores mostram o quanto foi gasto em relação ao orçamento.
+- **Sincronização bancária**: Integração com instituições financeiras para importar transações automaticamente.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🖥️ Demonstração ao vivo
+Acesse a aplicação em: [EasySpend - Controle Financeiro](https://easyspend-ckdwtmjk4-lucas-projects-6c6902e1.vercel.app/sign-in)  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🚀 Tecnologias utilizadas
+- **Frontend**: [React](https://reactjs.org/), [Next.js](https://nextjs.org/)
+- **Backend**: [Node.Js](https://nodejs.org/pt) , [TypeScript](https://www.typescriptlang.org/)
+- **Monitoramento**: [Sentry](https://sentry.io/welcome/)
+- **Banco de dados**: [AppWrite](https://appwrite.io/)
+- **Autenticação**: [AppWrite](https://appwrite.io/)
+- **Estilização**: [TailwindCSS](https://tailwindcss.com/), [Shadcn](https://ui.shadcn.com/).
+- **Integrações**: [Plaid](https://plaid.com/docs/) API Bancaria para leitura de dados bancarios e [Dwolla](https://www.dwolla.com/) API para processamentos bancarios.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Configuração e execução local
+Siga as instruções abaixo para rodar o projeto localmente:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/easyspend.git
+   cd easyspend
 
-## Deploy on Vercel
+2. Instale as dependências
+    ```bash
+    npm install
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3.Configure as variáveis de ambiente:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Crie um arquivo .env e adicione as seguintes variáveis:
+
+    
+    
+    # NEXT
+    NEXT_PUBLIC_SITE_URL=
+
+    # APPWRITE
+    NEXT_PUBLIC_APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
+    NEXT_PUBLIC_APPWRITE_PROJECT=
+    APPWRITE_DATABASE_ID=
+    APPWRITE_USER_COLLECTION_ID=
+    APPWRITE_BANK_COLLECTION_ID=
+    APPWRITE_TRANSACTION_COLLECTION_ID=
+    NEXT_APPWRITE_KEY=
+
+    # PLAID
+    PLAID_CLIENT_ID=
+    PLAID_SECRET=
+    PLAID_ENV=
+    PLAID_PRODUCTS=
+    PLAID_COUNTRY_CODES=
+
+    # DWOLLA
+    DWOLLA_KEY=
+    DWOLLA_SECRET=
+    DWOLLA_BASE_URL=https://api-sandbox.dwolla.com
+    DWOLLA_ENV=sandbox
+
+4.Inicie o servidor de desenvolvimento:
+
+    ```bash
+    npm run dev
+
+5.Acesse a aplicação em: http://localhost:3000
+
+
+
+
+
+    
+## 📷 Capturas de tela
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+
+
+
+
+## 🤝 Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests para novas ideias e melhorias.
+
+1. Faça um fork do projeto.
+
+
+2.Crie uma branch para sua feature:
+
+
+    git checkout -b feature/nova-feature
+    
+3.Faça commit das suas alterações:
+
+    git commit -m "Adiciona nova funcionalidade"
+
+4.Envie a branch para o repositório remoto:
+
+
+
+    git push origin feature/nova-feature
+
+## 📜 Licença
+Este projeto está licenciado sob a Licença MIT. Consulte o arquivo LICENSE para mais detalhes.
+
+## 📧 Contato
+Se você tiver dúvidas ou sugestões, entre em contato:
+
+Email: lucasmirandaalmeida2@gmail.com
+
+
+LinkedIn: https://www.linkedin.com/in/lucas-almeida-miranda/Seu LinkedIn
